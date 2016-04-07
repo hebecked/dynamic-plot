@@ -39,7 +39,7 @@ class live_plots:
 		if append:
 			self.x=np.append(self.x,x)
 			self.y=np.append(self.y,y1)
-			if(twoplots):
+			if(self.twoplots):
 				self.y2=np.append(self.y2,y2)
 		else:
 			self.x=x
@@ -56,6 +56,9 @@ class live_plots:
 		self.figure.canvas.draw()
 		self.figure.canvas.flush_events()
 
+
+	def autoscale(self):
+		self.ax1.set_xlim(np.min(self.x),np.max(self.x))
 
 
 	def update_time(self,x,y1,y2):
